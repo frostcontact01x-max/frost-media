@@ -1,0 +1,6 @@
+{
+  "name": "Frost Media Agency",
+  "description": "Modern, premium agency website for Frost Media, specializing in content growth, creative strategy, and video production.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
