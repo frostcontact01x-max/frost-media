@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Calendar, Send, CheckCircle, Clock, ChevronRight, Briefcase, Sparkles, Check } from "lucide-react";
+import Logo from "./Logo";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -45,6 +46,11 @@ export default function ContactForm() {
 
   return (
     <section id="contact" className="relative py-24 md:py-32 bg-[#050505] overflow-hidden border-t border-white/5">
+      {/* Brand Mascot Watermark Accent */}
+      <div className="absolute -right-20 -bottom-20 w-[450px] h-[450px] opacity-[0.015] text-white pointer-events-none select-none z-0 transform rotate-12">
+        <Logo className="w-full h-full" watermark />
+      </div>
+
       {/* Background spot spotlights */}
       <div className="absolute bottom-[10%] right-[-10%] w-[500px] h-[500px] bg-frost-secondary/3 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute top-[10%] left-[-10%] w-[400px] h-[400px] bg-frost-accent/2 rounded-full blur-[120px] pointer-events-none" />

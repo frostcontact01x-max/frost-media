@@ -24,7 +24,6 @@ export default function Navbar({ onNavigate }: NavbarProps) {
     { id: "process", label: "Process" },
     { id: "showcase", label: "Showcase" },
     { id: "about", label: "Philosophy" },
-    { id: "testimonials", label: "Collaborations" },
     { id: "contact", label: "Contact" },
   ];
 
@@ -70,10 +69,10 @@ export default function Navbar({ onNavigate }: NavbarProps) {
           <button
             id="nav-logo"
             onClick={() => handleItemClick("home")}
-            className="flex items-center space-x-3 group cursor-pointer text-left"
+            className="flex items-center space-x-3.5 group cursor-pointer text-left"
           >
-            <Logo className="w-10 h-10 text-white group-hover:text-frost-accent transition-all duration-300 transform group-hover:scale-105" />
-            <span className="font-heading font-bold text-lg md:text-xl tracking-tight text-white group-hover:text-frost-accent transition-colors duration-300">
+            <Logo className="w-12 h-12 text-white group-hover:text-frost-accent transition-all duration-500 transform group-hover:scale-108 group-hover:rotate-2 filter drop-shadow-[0_0_8px_rgba(125,211,252,0.15)]" />
+            <span className="font-heading font-black text-lg md:text-xl tracking-tight text-white group-hover:text-frost-accent transition-colors duration-300">
               FROST<span className="text-frost-accent">.</span>MEDIA
             </span>
           </button>
@@ -111,8 +110,9 @@ export default function Navbar({ onNavigate }: NavbarProps) {
               onClick={() => handleItemClick("contact")}
               className="group relative px-6 py-3 rounded overflow-hidden bg-white text-black font-semibold font-sans text-xs uppercase tracking-widest transition-all duration-300 hover:bg-frost-accent hover:text-black cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_25px_rgba(125,211,252,0.4)]"
             >
-              <span className="relative z-10 flex items-center space-x-1">
-                <span>Book Strategy Call</span>
+              <span className="relative z-10 flex items-center space-x-1 px-0.5">
+                <Logo className="w-4.5 h-4.5 text-black mr-1 transform group-hover:rotate-6 transition-all duration-300" />
+                <span className="font-heading tracking-[0.08em] font-extrabold text-[11px] sm:text-xs">Book Strategy Call</span>
                 <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
               </span>
             </button>
@@ -139,7 +139,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="fixed inset-x-0 top-0 pt-24 pb-12 bg-[#050505]/98 backdrop-blur-2xl border-b border-white/10 z-40 lg:hidden px-6"
+            className="fixed inset-x-0 top-0 pt-24 pb-12 bg-[#050505]/98 backdrop-blur-2xl border-b border-white/10 z-40 lg:hidden px-6 max-h-screen overflow-y-auto"
           >
             <nav className="flex flex-col space-y-4">
               {navItems.map((item, idx) => {

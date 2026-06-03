@@ -30,7 +30,7 @@ export default function ProcessTimeline() {
         </div>
 
         {/* Timeline List Layout */}
-        <div className="relative border-l border-white/5 pl-6 md:pl-12 ml-4 md:ml-8 space-y-16 md:space-y-24">
+        <div className="relative border-l border-white/5 pl-10 md:pl-16 ml-3 md:ml-8 space-y-16 md:space-y-24">
           {PROCESS_STEPS.map((step, index) => (
             <motion.div
               key={step.number}
@@ -42,7 +42,7 @@ export default function ProcessTimeline() {
               className="relative"
             >
               {/* Bullets layout indicating active digit node */}
-              <div className="absolute -left-[31px] md:-left-[61px] top-0 w-12 h-12 rounded-full bg-[#050505] border border-white/10 flex items-center justify-center font-heading font-bold text-sm text-frost-accent shadow-[0_0_15px_rgba(125,211,252,0.1)]">
+              <div className="absolute -left-[51px] md:-left-[81px] top-0.5 w-10 h-10 md:w-12 md:h-12 rounded-full bg-[#050505] border border-white/10 flex items-center justify-center font-heading font-black text-xs md:text-sm text-frost-accent shadow-[0_0_15px_rgba(125,211,252,0.1)]">
                 {step.number}
               </div>
 

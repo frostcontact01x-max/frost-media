@@ -116,7 +116,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
-            className="mt-12 flex flex-wrap gap-8 items-center"
+            className="mt-12 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8"
           >
             {/* Primary Strategy Button - Sleek styling */}
             <button

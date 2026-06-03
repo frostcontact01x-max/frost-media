@@ -8,7 +8,11 @@ import { motion, AnimatePresence } from "motion/react";
 import { ArrowUpRight, Sliders, ChevronRight, Check, Sparkles, Layers, Video } from "lucide-react";
 import { CASE_STUDIES } from "../data/portfolioData";
 
-export default function CaseStudies() {
+interface CaseStudiesProps {
+  onNavigate?: (id: string) => void;
+}
+
+export default function CaseStudies({ onNavigate }: CaseStudiesProps) {
   const [activeCaseId, setActiveCaseId] = useState(CASE_STUDIES[0].id);
   const activeCase = CASE_STUDIES.find((c) => c.id === activeCaseId) || CASE_STUDIES[0];
 
@@ -174,7 +178,7 @@ export default function CaseStudies() {
                     <span className="font-mono text-[10px] text-gray-400 uppercase tracking-widest block mb-4 font-semibold">
                       Performance Metrics & Growth Result
                     </span>
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                       {/* Card 1: Starting */}
                       <div className="relative overflow-hidden p-5 bg-[#111111] border border-white/5 rounded-xl group/stat hover:border-frost-accent/20 transition-all duration-300">
                         <span className="block font-mono text-[9px] text-gray-500 uppercase tracking-widest leading-none">Starting Audience</span>
@@ -306,8 +310,17 @@ export default function CaseStudies() {
                 </div>
               </div>
 
-              {/* Decorative Case mockup card displaying activeCase.heroImage */}
-              <div className="relative rounded-2xl overflow-hidden h-[240px] border border-white/5 group bg-[#111111]">
+              {/* Clickable Case mockup card displaying activeCase.heroImage */}
+              <button
+                onClick={() => {
+                  if (onNavigate) {
+                    onNavigate("showcase");
+                  } else {
+                    document.getElementById("showcase")?.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+                className="relative rounded-2xl overflow-hidden h-[240px] border border-white/5 group bg-[#111111] text-left cursor-pointer w-full focus:outline-none focus:ring-2 focus:ring-frost-accent/40"
+              >
                 <img
                   src={activeCase.heroImage}
                   alt={activeCase.clientName}
@@ -329,7 +342,7 @@ export default function CaseStudies() {
                     <ArrowUpRight className="w-4 h-4" />
                   </div>
                 </div>
-              </div>
+              </button>
             </div>
           </motion.div>
         </AnimatePresence>

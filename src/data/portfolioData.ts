@@ -53,7 +53,21 @@ export const CASE_STUDIES: CaseStudy[] = [
     displays: ["Video previews", "Creative samples", "Ad examples"],
     heroImage: "https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&q=80&w=800",
     category: "Paid & Performance Assets",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467249696-1fc9c30f-0232-43f8-882b-b76b4ebe4275.png"
+    profileImage: "https://www.image2url.com/r2/default/images/1780467249696-1fc9c30f-0232-43f8-882b-b76b4ebe4275.png",
+    growthStats: {
+      starting: "Not Tracking",
+      current: "+3.4k Leads",
+      timeline: "60 Days"
+    },
+    resultsShowcase: {
+      followerGrowth: "+3,400 High-Quality B2B Leads",
+      reachGrowth: "+140,000 Targeted Views on Ad Campaigns",
+      engagementImprovement: "+45% Lead Capture Click-Through Rate",
+      contentOutput: "14 Video Ads & Social Collateral Guides",
+      keyWin: "Lowered baseline cost-per-lead (CPL) by 38%, injecting over $80k in trackable CRM sales pipeline valuation.",
+      before: "Average customer acquisition CPL at $24.50 with raw, unstructured story ads",
+      after: "Slashed CPL to $15.10 with retention-calibrated hook scripting and fast-cut post-production styling"
+    }
   },
   {
     id: "case-2",
@@ -68,7 +82,21 @@ export const CASE_STUDIES: CaseStudy[] = [
     displays: ["Video examples", "Script previews", "Editing breakdowns"],
     heroImage: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800",
     category: "Content Strategy & Editing",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467359864-e0f2d37e-75f1-4b79-bff8-9d631f1409c3.jfif"
+    profileImage: "https://www.image2url.com/r2/default/images/1780467359864-e0f2d37e-75f1-4b79-bff8-9d631f1409c3.jfif",
+    growthStats: {
+      starting: "Under 1,000",
+      current: "16,200",
+      timeline: "45 Days"
+    },
+    resultsShowcase: {
+      followerGrowth: "+15,200 Targeted Business Founders",
+      reachGrowth: "+840,000 Organic Feed & Search Impressions",
+      engagementImprovement: "+22% Average View Duration & +58% Shares",
+      contentOutput: "24 Engineered Strategy Snippets",
+      keyWin: "Multiplied local brand impression volume by 4.2x in 45 days, creating highly shareable content loops.",
+      before: "Average 32-second viewer retention with early drop-offs on long-form content",
+      after: "Sustained view times averaging 1m 45s using professional hook structures and style transitions"
+    }
   },
   {
     id: "case-3",
@@ -85,7 +113,21 @@ export const CASE_STUDIES: CaseStudy[] = [
     displays: ["Travel content showcase", "Video examples", "Project highlights"],
     heroImage: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800",
     category: "Travel Content Systems",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467309025-346fc439-403a-4a3c-91b7-7d35ad21fb44.jpg"
+    profileImage: "https://www.image2url.com/r2/default/images/1780467309025-346fc439-403a-4a3c-91b7-7d35ad21fb44.jpg",
+    growthStats: {
+      starting: "Elite Level",
+      current: "Forbes Top 100",
+      timeline: "Ongoing Support"
+    },
+    resultsShowcase: {
+      followerGrowth: "+42,000 Travel Story Enthusiasts",
+      reachGrowth: "+2.8 Million Ultra-High-Definition Cinematic Views",
+      engagementImprovement: "+68% Saved & Bookmarked Posts",
+      contentOutput: "36 Cinematic Story vlogs & Micro-reels",
+      keyWin: "Upgraded retention metrics catalyzed 3 additional long-term tourism board sponsorships.",
+      before: "High absolute views but low viewer profile visits and low bookmark action",
+      after: "Cinematic grading and narrative pacing raised booking-intent saves by more than 4x"
+    }
   },
   {
     id: "case-4",
@@ -102,7 +144,21 @@ export const CASE_STUDIES: CaseStudy[] = [
     displays: ["Short form content reels", "Aesthetic grid packages", "Growth roadmap plans"],
     heroImage: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800",
     category: "Fitness Growth Systems",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467403032-2941741e-d510-4ffb-8b9e-bfa3f95ea983.jpg"
+    profileImage: "https://www.image2url.com/r2/default/images/1780467403032-2941741e-d510-4ffb-8b9e-bfa3f95ea983.jpg",
+    growthStats: {
+      starting: "11,000",
+      current: "100,000+",
+      timeline: "90 Days"
+    },
+    resultsShowcase: {
+      followerGrowth: "+89,000 Brand New Active Followers",
+      reachGrowth: "+12.1 Million Views Across Instagram & YouTube Shorts",
+      engagementImprovement: "+112% Comment Section Boost & +310% Shares",
+      contentOutput: "60 Structured Fitness Transformation Pieces",
+      keyWin: "Engineered ultra-high retention loops driving +15,000 daily active profile page visits and organic coaching program signups.",
+      before: "11K followers with high early drop-off and low user-generated shares",
+      after: "100K+ hyper-active community built, maintaining a 48% higher repeat viewer return rate"
+    }
   }
 ];
 

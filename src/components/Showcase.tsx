@@ -6,6 +6,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Play, Sparkles, Timer, Sliders, X } from "lucide-react";
+import Logo from "./Logo";
 
 interface ShowcaseItem {
   id: string;
@@ -172,6 +173,11 @@ export default function Showcase() {
 
   return (
     <section id="showcase" className="relative py-24 md:py-32 bg-[#080808] border-t border-white/5">
+      {/* Oversized transparent brand mascot background accent */}
+      <div className="absolute left-[20%] top-1/2 -translate-y-1/2 w-[850px] h-[850px] opacity-[0.012] text-white pointer-events-none select-none z-0">
+        <Logo className="w-full h-full" watermark />
+      </div>
+
       {/* Decorative Blur Spheres */}
       <div className="absolute top-[10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-frost-accent/2 blur-[140px] pointer-events-none" />
       <div className="absolute bottom-[20%] left-[-10%] w-[450px] h-[450px] rounded-full bg-frost-secondary/2 blur-[130px] pointer-events-none" />

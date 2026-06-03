@@ -32,6 +32,15 @@ export interface CaseStudy {
     current: string;
     timeline: string;
   };
+  resultsShowcase?: {
+    followerGrowth: string;
+    reachGrowth: string;
+    engagementImprovement: string;
+    contentOutput: string;
+    keyWin: string;
+    before?: string;
+    after?: string;
+  };
 }
 
 export interface ProcessStep {

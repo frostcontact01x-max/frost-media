@@ -4,7 +4,7 @@
  */
 
 import React from "react";
-import { Youtube, Linkedin, Instagram, ArrowUp } from "lucide-react";
+import { Instagram, MessageCircle, ArrowUp } from "lucide-react";
 import Logo from "./Logo";
 
 interface FooterProps {
@@ -34,11 +34,11 @@ export default function Footer({ onNavigate }: FooterProps) {
               <button
                 id="footer-logo"
                 onClick={() => onNavigate("home")}
-                className="flex items-center space-x-3 mb-6 group text-left cursor-pointer"
+                className="flex items-center space-x-4 mb-6 group text-left cursor-pointer"
               >
-                <Logo className="w-9 h-9 text-white group-hover:text-frost-accent transition-all duration-300 transform group-hover:scale-105" />
-                <span className="font-heading font-bold text-lg tracking-tight text-white group-hover:text-frost-accent transition-colors">
-                  FROST<span className="text-frost-accent">.</span>MEDIA
+                <Logo className="w-14 h-14 text-white group-hover:text-frost-accent transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-3 drop-shadow-[0_0_20px_rgba(255,255,255,0.08)]" />
+                <span className="font-heading font-black text-xl md:text-2xl tracking-tighter text-white group-hover:text-frost-accent transition-colors">
+                  FROST<span className="text-frost-accent font-bold">.</span>MEDIA
                 </span>
               </button>
 
@@ -50,31 +50,22 @@ export default function Footer({ onNavigate }: FooterProps) {
             {/* Social channels lookups */}
             <div className="flex items-center space-x-4 mt-8">
               <a
-                href="https://youtube.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="YouTube Channel"
-                className="w-10 h-10 rounded-lg bg-white/5 hover:bg-frost-accent hover:text-black flex items-center justify-center text-gray-400 transition-all duration-300 border border-white/5"
-              >
-                <Youtube className="w-4 h-4" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                aria-label="LinkedIn Account"
-                className="w-10 h-10 rounded-lg bg-white/5 hover:bg-frost-accent hover:text-black flex items-center justify-center text-gray-400 transition-all duration-300 border border-white/5"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/frost_studio/"
                 target="_blank"
                 rel="noreferrer"
                 aria-label="Instagram Profile"
                 className="w-10 h-10 rounded-lg bg-white/5 hover:bg-frost-accent hover:text-black flex items-center justify-center text-gray-400 transition-all duration-300 border border-white/5"
               >
                 <Instagram className="w-4 h-4" />
+              </a>
+              <a
+                href="https://wa.me/message/ME4KGS4IC52VN1"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp Chat"
+                className="w-10 h-10 rounded-lg bg-white/5 hover:bg-frost-accent hover:text-black flex items-center justify-center text-gray-400 transition-all duration-300 border border-white/5"
+              >
+                <MessageCircle className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -156,10 +147,6 @@ export default function Footer({ onNavigate }: FooterProps) {
               <div>
                 <span className="block font-mono text-[9px] uppercase text-gray-500">Principal Desk</span>
                 <span className="block font-sans text-xs text-gray-300 mt-1">frostcontact01x@gmail.com</span>
-              </div>
-              <div>
-                <span className="block font-mono text-[9px] uppercase text-gray-500">Consultation Locations</span>
-                <span className="block font-sans text-xs text-gray-300 mt-1">Singapore / London / SF (Virtual Mode)</span>
               </div>
             </div>
           </div>
