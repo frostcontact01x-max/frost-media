@@ -5,7 +5,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Calendar, Send, CheckCircle, Clock, ChevronRight, Briefcase, Sparkles, Check } from "lucide-react";
+import { Calendar, Send, CheckCircle, Clock, ChevronRight, Briefcase, Sparkles, Check, Loader2, AlertCircle, MessageCircle } from "lucide-react";
 import Logo from "./Logo";
 
 export default function ContactForm() {
@@ -13,10 +13,16 @@ export default function ContactForm() {
     name: "",
     email: "",
     business: "",
+    phone: "",
     details: "",
     budget: "To be discussed during call",
   });
 
+  const [leadId, setLeadId] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isBooking, setIsBooking] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [bookingError, setBookingError] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
   const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
@@ -34,14 +40,82 @@ export default function ContactForm() {
     "04:30 PM UTC"
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email) return;
-    setIsSubmitted(true);
+    if (!formData.name || !formData.email || !formData.phone) {
+      setError("Name, Email, and Phone Number are required fields.");
+      return;
+    }
+
+    // Basic email regex
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setError("Please provide a valid email address.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/contact/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to submit inquiry.");
+      }
+
+      setLeadId(data.leadId);
+      setIsSubmitted(true);
+    } catch (err: any) {
+      console.error("Submission failed:", err);
+      setError(err.message || "An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleConfirmBooking = () => {
-    setIsBookingConfirmed(true);
+  const handleConfirmBooking = async () => {
+    if (!leadId || !selectedSlot) {
+      setBookingError("Please select a time slot to lock booking.");
+      return;
+    }
+
+    setIsBooking(true);
+    setBookingError(null);
+
+    try {
+      const response = await fetch("/api/contact/book", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          leadId,
+          selectedSlot,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to finalize booking.");
+      }
+
+      setIsBookingConfirmed(true);
+    } catch (err: any) {
+      console.error("Scheduling failed:", err);
+      setBookingError(err.message || "An unexpected scheduling error occurred. Please try again.");
+    } finally {
+      setIsBooking(false);
+    }
   };
 
   return (
@@ -101,8 +175,8 @@ export default function ContactForm() {
                     />
                   </div>
 
-                  {/* Email & Business Fields side-by-side */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {/* Email & Business & Phone Fields - 3-col Grid */}
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                       <label id="lbl-email" className="block text-xs font-mono uppercase tracking-widest text-gray-500 mb-2">
                         Your Email Address
@@ -125,9 +199,24 @@ export default function ContactForm() {
                       <input
                         id="inp-business"
                         type="text"
-                        placeholder="e.g. CapitalFlow / @capitalflow"
+                        placeholder="e.g. CapitalFlow"
                         value={formData.business}
                         onChange={(e) => setFormData({ ...formData, business: e.target.value })}
+                        className="w-full bg-[#111111] border border-white/8 rounded px-5 py-4 font-sans text-sm text-white placeholder-gray-600 focus:outline-none focus:border-frost-accent focus:bg-[#151515] transition-all duration-300"
+                      />
+                    </div>
+
+                    <div>
+                      <label id="lbl-phone" className="block text-xs font-mono uppercase tracking-widest text-gray-500 mb-2">
+                        Phone Number
+                      </label>
+                      <input
+                        id="inp-phone"
+                        type="tel"
+                        required
+                        placeholder="e.g. +1 555-019-283"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         className="w-full bg-[#111111] border border-white/8 rounded px-5 py-4 font-sans text-sm text-white placeholder-gray-600 focus:outline-none focus:border-frost-accent focus:bg-[#151515] transition-all duration-300"
                       />
                     </div>
@@ -175,15 +264,37 @@ export default function ContactForm() {
                     />
                   </div>
 
+                  {/* Validation Action Error Alert Step 1 */}
+                  {error && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-4 rounded-lg bg-rose-950/40 border border-rose-800/40 text-rose-200 text-xs flex items-start space-x-2.5 font-sans"
+                    >
+                      <AlertCircle className="w-4.5 h-4.5 text-rose-400 shrink-0 mt-0.5" />
+                      <div>
+                        <span className="font-bold block text-white mb-0.5">Inquiry Submission Failed</span>
+                        <span>{error}</span>
+                      </div>
+                    </motion.div>
+                  )}
+
                   {/* Submit Trigger in form */}
-                  <div className="pt-4">
+                  <div className="pt-2">
                     <button
                       id="contact-submit-btn"
                       type="submit"
-                      className="w-full sm:w-auto px-10 py-5 rounded bg-white text-black font-semibold uppercase tracking-widest font-sans text-xs transition-colors duration-300 hover:bg-frost-accent cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-none flex items-center justify-center space-x-3"
+                      disabled={isSubmitting}
+                      className="w-full sm:w-auto px-10 py-5 rounded bg-white disabled:bg-white/30 disabled:text-black/60 text-black font-semibold uppercase tracking-widest font-sans text-xs transition-all duration-300 hover:bg-frost-accent cursor-pointer shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-none flex items-center justify-center space-x-3"
                     >
-                      <span className="font-heading">Submit Inquiry</span>
-                      <Send className="w-3.5 h-3.5" />
+                      <span className="font-heading">
+                        {isSubmitting ? "Sending Inquiry..." : "Submit Inquiry"}
+                      </span>
+                      {isSubmitting ? (
+                        <Loader2 className="w-3.5 h-3.5 animate-spin text-black" />
+                      ) : (
+                        <Send className="w-3.5 h-3.5" />
+                      )}
                     </button>
                   </div>
                 </motion.form>
@@ -203,83 +314,34 @@ export default function ContactForm() {
                         Inquiry Received
                       </h3>
                       <p className="text-xs font-mono text-frost-accent uppercase tracking-widest mt-0.5">
-                        We will get back to you within 24 hours.
+                        Filing secured. Let's align on WhatsApp.
                       </p>
                     </div>
                   </div>
 
                   <p className="font-sans text-sm text-gray-400 mb-8 leading-relaxed">
-                    Thanks <span className="text-white font-medium">{formData.name}</span>. Underneath, secure a session on our direct booking selector to lock in our discovery call slot immediately.
+                    Thanks <span className="text-white font-medium">{formData.name}</span>. Your inquiry details are securely recorded in our database.
                   </p>
 
-                  {/* Calendly Interface Simulation */}
-                  <div className="bg-[#111111] border border-white/8 rounded-xl p-6">
-                    <AnimatePresence mode="wait">
-                      {!isBookingConfirmed ? (
-                        <motion.div
-                          key="booking-selection"
-                          initial={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                        >
-                          <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/5">
-                            <div className="flex items-center space-x-2.5">
-                              <Calendar className="w-5 h-5 text-frost-accent" />
-                              <div>
-                                <span className="block font-heading font-bold text-sm text-white uppercase tracking-tight">Select Discovery Call</span>
-                                <span className="block font-sans text-[10px] text-gray-500">20 minute casual brief</span>
-                              </div>
-                            </div>
-                            <div className="flex items-center text-xs font-mono text-gray-500 space-x-1">
-                              <Clock className="w-3.5 h-3.5" />
-                              <span>Instant Booking</span>
-                            </div>
-                          </div>
-
-                          {/* Virtual time slots list */}
-                          <div className="grid grid-cols-2 gap-3 mb-6">
-                            {timeSlots.map((slot) => {
-                              const isSelect = selectedSlot === slot;
-                              return (
-                                <button
-                                  key={slot}
-                                  id={`timeslot-btn-${slot.replace(/\s+/g, '-')}`}
-                                  onClick={() => setSelectedSlot(slot)}
-                                  className={`py-3.5 rounded text-center text-xs font-medium uppercase tracking-wider border transition-all duration-300 cursor-pointer ${
-                                    isSelect
-                                      ? "bg-frost-accent text-black font-semibold border-transparent shadow-[0_0_15px_rgba(125,211,252,0.3)]"
-                                      : "bg-[#050505] border-white/5 text-gray-300 hover:border-white/10"
-                                  }`}
-                                >
-                                  {slot}
-                                </button>
-                              );
-                            })}
-                          </div>
-
-                          <button
-                            id="confirm-booking-btn"
-                            disabled={!selectedSlot}
-                            onClick={handleConfirmBooking}
-                            className="w-full py-4 rounded bg-frost-secondary disabled:bg-frost-secondary/20 disabled:text-gray-500 text-black font-semibold font-sans text-xs uppercase tracking-widest hover:bg-white transition-colors duration-300 cursor-pointer"
-                          >
-                            {selectedSlot ? `Confirm Booking for ${selectedSlot}` : "Choose a time slot to lock booking"}
-                          </button>
-                        </motion.div>
-                      ) : (
-                        <motion.div
-                          key="booking-success"
-                          initial={{ opacity: 0, y: 10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          className="text-center py-6"
-                        >
-                          <CheckCircle className="w-12 h-12 text-emerald-400 mx-auto mb-4" />
-                          <h4 className="font-heading font-bold text-lg text-white uppercase tracking-tight">Discovery Call Scheduled</h4>
-                          <p className="font-sans text-xs text-gray-400 mt-2 max-w-md mx-auto leading-relaxed">
-                            We have scheduled your discovery session for <strong className="text-white">{selectedSlot}</strong> using the email address <strong className="text-white">{formData.email}</strong>. Check your inbox for coordinates!
-                          </p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+                  {/* WhatsApp Connect Block */}
+                  <div className="bg-[#111111] border border-white/8 rounded-xl p-6 text-center">
+                    <div className="w-12 h-12 rounded-full bg-[#128C7E]/10 border border-[#128C7E]/30 flex items-center justify-center text-[#128C7E] mx-auto mb-4">
+                      <MessageCircle className="w-6 h-6" />
+                    </div>
+                    <h4 className="font-heading font-bold text-base text-white uppercase tracking-tight mb-2">Connect via WhatsApp</h4>
+                    <p className="font-sans text-xs text-gray-400 max-w-sm mx-auto mb-6 leading-relaxed">
+                      To accelerate your onboarding and coordinate the content consultation immediately, please tap the button below to text our chief team.
+                    </p>
+                    
+                    <a
+                      href="https://wa.me/message/ME4KGS4IC52VN1"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="inline-flex items-center justify-center space-x-2.5 w-full py-4 rounded bg-[#128C7E] hover:bg-[#128C7E]/95 text-white font-semibold font-sans text-xs uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_20px_rgba(18,140,126,0.35)]"
+                    >
+                      <span>Connect with WhatsApp</span>
+                      <MessageCircle className="w-4 h-4" />
+                    </a>
                   </div>
                 </motion.div>
               )}
