@@ -5,7 +5,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import { Calendar, Send, CheckCircle, Clock, ChevronRight, Briefcase, Sparkles, Check, Loader2, AlertCircle, MessageCircle } from "lucide-react";
+import { Send, CheckCircle, ChevronRight, Briefcase, Sparkles, Check, Loader2, AlertCircle, MessageCircle } from "lucide-react";
 import Logo from "./Logo";
 
 export default function ContactForm() {
@@ -18,26 +18,14 @@ export default function ContactForm() {
     budget: "To be discussed during call",
   });
 
-  const [leadId, setLeadId] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isBooking, setIsBooking] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [bookingError, setBookingError] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
-  const [isBookingConfirmed, setIsBookingConfirmed] = useState(false);
 
   const budgets = [
     "$1,500 - $3,000 /mo",
     "$3,000 - $6,000 /mo",
     "To be discussed during call"
-  ];
-
-  const timeSlots = [
-    "09:00 AM UTC",
-    "11:30 AM UTC",
-    "02:00 PM UTC",
-    "04:30 PM UTC"
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -72,49 +60,12 @@ export default function ContactForm() {
         throw new Error(data.error || "Failed to submit inquiry.");
       }
 
-      setLeadId(data.leadId);
       setIsSubmitted(true);
     } catch (err: any) {
       console.error("Submission failed:", err);
       setError(err.message || "An unexpected error occurred. Please try again.");
     } finally {
       setIsSubmitting(false);
-    }
-  };
-
-  const handleConfirmBooking = async () => {
-    if (!leadId || !selectedSlot) {
-      setBookingError("Please select a time slot to lock booking.");
-      return;
-    }
-
-    setIsBooking(true);
-    setBookingError(null);
-
-    try {
-      const response = await fetch("/api/contact/book", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          leadId,
-          selectedSlot,
-        }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.error || "Failed to finalize booking.");
-      }
-
-      setIsBookingConfirmed(true);
-    } catch (err: any) {
-      console.error("Scheduling failed:", err);
-      setBookingError(err.message || "An unexpected scheduling error occurred. Please try again.");
-    } finally {
-      setIsBooking(false);
     }
   };
 
