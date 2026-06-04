@@ -72,31 +72,18 @@ export const CASE_STUDIES: CaseStudy[] = [
   {
     id: "case-2",
     clientName: "Dylan Cooper",
-    company: "CORBELIX",
-    title: "Founder, CORBELIX",
+    title: "Video Editing Support",
     industry: "Business & Entrepreneurship",
-    services: ["Video Editing", "Content Scripting"],
-    overview: "Supported Dylan Cooper with scripting and editing content designed to communicate business insights more effectively and improve content quality.",
-    shortDescription: "Business founder focused on growth systems, operational strategy, and educational business content.",
-    keyOutcome: "Streamlined delivery of core insights through narrative-focused video pacing.",
-    displays: ["Video examples", "Script previews", "Editing breakdowns"],
+    services: ["Video Editing"],
+    overview: "Provided video editing support for content associated with Dylan Cooper through partner production teams.",
+    shortDescription: "Business and entrepreneurship content focused on professional insights, operations, and growth discussions.",
+    keyOutcome: "Edited long form video content with a focus on pacing, clarity, visual flow, and viewer experience.",
+    displays: ["Edited Video Content Layouts", "Post-production Pacing Checks"],
     heroImage: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800",
-    category: "Content Strategy & Editing",
+    category: "Video Editing Support",
     profileImage: "https://www.image2url.com/r2/default/images/1780467359864-e0f2d37e-75f1-4b79-bff8-9d631f1409c3.jfif",
-    growthStats: {
-      starting: "Under 1,000",
-      current: "16,200",
-      timeline: "45 Days"
-    },
-    resultsShowcase: {
-      followerGrowth: "+15,200 Targeted Business Founders",
-      reachGrowth: "+840,000 Organic Feed & Search Impressions",
-      engagementImprovement: "+22% Average View Duration & +58% Shares",
-      contentOutput: "24 Engineered Strategy Snippets",
-      keyWin: "Multiplied local brand impression volume by 4.2x in 45 days, creating highly shareable content loops.",
-      before: "Average 32-second viewer retention with early drop-offs on long-form content",
-      after: "Sustained view times averaging 1m 45s using professional hook structures and style transitions"
-    }
+    isActiveClient: false,
+    projectNote: "Work was completed through partner production teams. Frost Media's contribution was limited to video editing services."
   },
   {
     id: "case-3",
@@ -252,16 +239,15 @@ export const COLLABORATIONS: Collaboration[] = [
   {
     id: "collab-2",
     clientName: "Dylan Cooper",
-    company: "CORBELIX",
-    title: "Founder, CORBELIX",
-    projectCompleted: "CORBELIX Insights Series",
-    servicesProvided: ["Video Editing", "Content Scripting"],
+    title: "Video Editing Support",
+    projectCompleted: "Video Editing Support",
+    servicesProvided: ["Video Editing"],
     activeStatus: false,
     videoSampleUrl: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=400",
     industry: "Business & Entrepreneurship",
     profileImage: "https://www.image2url.com/r2/default/images/1780467359864-e0f2d37e-75f1-4b79-bff8-9d631f1409c3.jfif",
-    shortDescription: "Business founder focused on growth systems, operational strategy, and educational business content.",
-    keyOutcome: "Optimized script flows improved average view duration stats."
+    shortDescription: "Business and entrepreneurship content focused on professional insights, operations, and growth discussions.",
+    keyOutcome: "Edited long form video content with a focus on pacing, clarity, visual flow, and viewer experience."
   },
   {
     id: "collab-3",
