@@ -70,22 +70,6 @@ export const CASE_STUDIES: CaseStudy[] = [
     }
   },
   {
-    id: "case-2",
-    clientName: "Dylan Cooper",
-    title: "Video Editing Support",
-    industry: "Business & Entrepreneurship",
-    services: ["Video Editing"],
-    overview: "Provided video editing support for content associated with Dylan Cooper through partner production teams.",
-    shortDescription: "Business and entrepreneurship content focused on professional insights, operations, and growth discussions.",
-    keyOutcome: "Edited long form video content with a focus on pacing, clarity, visual flow, and viewer experience.",
-    displays: ["Edited Video Content Layouts", "Post-production Pacing Checks"],
-    heroImage: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=800",
-    category: "Video Editing Support",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467359864-e0f2d37e-75f1-4b79-bff8-9d631f1409c3.jfif",
-    isActiveClient: false,
-    projectNote: "Work was completed through partner production teams. Frost Media's contribution was limited to video editing services."
-  },
-  {
     id: "case-3",
     clientName: "Archana Singh",
     company: "TravelSeeWrite",
@@ -235,19 +219,6 @@ export const COLLABORATIONS: Collaboration[] = [
     profileImage: "https://www.image2url.com/r2/default/images/1780467249696-1fc9c30f-0232-43f8-882b-b76b4ebe4275.png",
     shortDescription: "Founder of Corewaves Solutions, specializing in lead generation systems, customer acquisition, and business growth infrastructure.",
     keyOutcome: "Strategic direct response ads lowered overall CPA metrics."
-  },
-  {
-    id: "collab-2",
-    clientName: "Dylan Cooper",
-    title: "Video Editing Support",
-    projectCompleted: "Video Editing Support",
-    servicesProvided: ["Video Editing"],
-    activeStatus: false,
-    videoSampleUrl: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&q=80&w=400",
-    industry: "Business & Entrepreneurship",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467359864-e0f2d37e-75f1-4b79-bff8-9d631f1409c3.jfif",
-    shortDescription: "Business and entrepreneurship content focused on professional insights, operations, and growth discussions.",
-    keyOutcome: "Edited long form video content with a focus on pacing, clarity, visual flow, and viewer experience."
   },
   {
     id: "collab-3",
