@@ -197,7 +197,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
               className="text-[1rem] text-slate-400 font-sans font-normal leading-relaxed max-w-2xl"
             >
-              Editing, thumbnails, content strategy, and distribution systems designed to help brands, creators, and businesses generate measurable growth from every piece of content.
+              Editing, thumbnails, content strategy, and distribution systems designed to help creators and businesses generate measurable growth from every piece of content.
             </motion.p>
 
             {/* Action buttons (Instant background color inversion to scarlet on hover) */}
