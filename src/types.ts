@@ -41,6 +41,7 @@ export interface CaseStudy {
     before?: string;
     after?: string;
   };
+  projectNote?: string;
 }
 
 export interface ProcessStep {

@@ -18,7 +18,7 @@ export default function Logo({ className = "w-8 h-8", watermark = false, ...prop
         {...props}
       >
         <img
-          src="https://www.image2url.com/r2/default/images/1780475420430-93e6cbe1-bef1-4c63-b2ea-9d47e909604c.jpeg"
+          src="https://res.cloudinary.com/dfy1jd14/image/upload/v1784430899/WhatsApp_Image_2026-05-03_at_9.53.27_AM_xgu5so.jpg"
           alt="Frost Media Logo Watermark"
           referrerPolicy="no-referrer"
           className="w-full h-full object-contain filter invert opacity-[0.8]"
@@ -34,7 +34,7 @@ export default function Logo({ className = "w-8 h-8", watermark = false, ...prop
       {...props}
     >
       <img
-        src="https://www.image2url.com/r2/default/images/1780475420430-93e6cbe1-bef1-4c63-b2ea-9d47e909604c.jpeg"
+        src="https://res.cloudinary.com/dfy1jd14/image/upload/v1784430899/WhatsApp_Image_2026-05-03_at_9.53.27_AM_xgu5so.jpg"
         alt="Frost Media Penguin Logo"
         referrerPolicy="no-referrer"
         className="w-[85%] h-[85%] rounded-full object-contain shrink-0"

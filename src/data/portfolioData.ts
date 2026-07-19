@@ -12,9 +12,8 @@ export const SERVICES: Service[] = [
     title: "Strategy",
     description: "Content planning, script structuring, and channel direction engineered to align with business objectives.",
     features: [
-      "Content Planning",
-      "Scripting",
-      "Channel Direction"
+      "90-Day Editorial Roadmap",
+      "Script Hook Structuring"
     ]
   },
   {
@@ -23,8 +22,8 @@ export const SERVICES: Service[] = [
     title: "Production",
     description: "Surgical video editing and CTR-focused thumbnail designs centered on retention and clarity.",
     features: [
-      "Video Editing",
-      "Thumbnail Design"
+      "Surgical Video Editing",
+      "CTR-Focused Thumbnail Design"
     ]
   },
   {
@@ -33,8 +32,8 @@ export const SERVICES: Service[] = [
     title: "Distribution",
     description: "Omnichannel repurposing and publishing systems configured to scale brand authority.",
     features: [
-      "Content Repurposing",
-      "Channel Management"
+      "Omnichannel Repurposing",
+      "Channel Management Systems"
     ]
   }
 ];
@@ -53,7 +52,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     displays: ["Video previews", "Creative samples", "Ad examples"],
     heroImage: "https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&q=80&w=800",
     category: "Paid & Performance Assets",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467249696-1fc9c30f-0232-43f8-882b-b76b4ebe4275.png",
+    profileImage: "https://res.cloudinary.com/dfy1jd14/image/upload/v1784431208/69ecb344d89efaafc42aca2bbc7d0a15_yihuqx.webp",
     growthStats: {
       starting: "Not Tracking",
       current: "+3.4k Leads",
@@ -84,7 +83,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     displays: ["Travel content showcase", "Video examples", "Project highlights"],
     heroImage: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&q=80&w=800",
     category: "Travel Content Systems",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467309025-346fc439-403a-4a3c-91b7-7d35ad21fb44.jpg",
+    profileImage: "https://res.cloudinary.com/dfy1jd14/image/upload/v1784430977/632465301_18565343356030330_7361726705850932669_n_1_x8vzc0.jpg",
     growthStats: {
       starting: "Elite Level",
       current: "Forbes Top 100",
@@ -115,7 +114,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     displays: ["Short form content reels", "Aesthetic grid packages", "Growth roadmap plans"],
     heroImage: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=800",
     category: "Fitness Growth Systems",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467403032-2941741e-d510-4ffb-8b9e-bfa3f95ea983.jpg",
+    profileImage: "https://res.cloudinary.com/dfy1jd14/image/upload/v1784430977/466864691_604528048574067_664906242001111930_n_1_hivkok.jpg",
     growthStats: {
       starting: "11,000",
       current: "100,000+",
@@ -216,7 +215,7 @@ export const COLLABORATIONS: Collaboration[] = [
     videoSampleUrl: "https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&q=80&w=400",
     industry: "Lead Generation",
     youtubeEmbedUrl: "https://www.youtube.com/embed/MATzSChX8Ng",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467249696-1fc9c30f-0232-43f8-882b-b76b4ebe4275.png",
+    profileImage: "https://res.cloudinary.com/dfy1jd14/image/upload/v1784431208/69ecb344d89efaafc42aca2bbc7d0a15_yihuqx.webp",
     shortDescription: "Founder of Corewaves Solutions, specializing in lead generation systems, customer acquisition, and business growth infrastructure.",
     keyOutcome: "Strategic direct response ads lowered overall CPA metrics."
   },
@@ -232,7 +231,7 @@ export const COLLABORATIONS: Collaboration[] = [
     industry: "Travel & Media",
     badge: "FORBES TOP 100 CREATOR",
     youtubeEmbedUrl: "https://www.youtube.com/embed/DpglzJlTUzM",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467309025-346fc439-403a-4a3c-91b7-7d35ad21fb44.jpg",
+    profileImage: "https://res.cloudinary.com/dfy1jd14/image/upload/v1784430977/632465301_18565343356030330_7361726705850932669_n_1_x8vzc0.jpg",
     shortDescription: "Travel creator and founder of TravelSeeWrite, recognized among Forbes Top 100 Creators and known for destination storytelling and travel experiences.",
     keyOutcome: "Aesthetic color grading and cinematic pacing improved brand reach."
   },
@@ -247,7 +246,7 @@ export const COLLABORATIONS: Collaboration[] = [
     videoSampleUrl: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&q=80&w=400",
     industry: "Fitness",
     badge: "FEATURED SUCCESS STORY",
-    profileImage: "https://www.image2url.com/r2/default/images/1780467403032-2941741e-d510-4ffb-8b9e-bfa3f95ea983.jpg",
+    profileImage: "https://res.cloudinary.com/dfy1jd14/image/upload/v1784430977/466864691_604528048574067_664906242001111930_n_1_hivkok.jpg",
     shortDescription: "Fitness creator who scaled from 11,000 followers to 100,000 followers within 3 months through consistent content execution, strategic packaging, and audience-focused content systems.",
     keyOutcome: "11K → 100K Followers in 3 Months (Featured Success Story)"
   }
