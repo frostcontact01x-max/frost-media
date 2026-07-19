@@ -377,7 +377,7 @@ export default function Showcase() {
   });
 
   return (
-    <section id="showcase" className="relative py-28 md:py-36 bg-[#0A0A0A]">
+    <section id="showcase" className="relative py-28 md:py-36 bg-[#0A0A0A] overflow-hidden">
       {/* Horizontal rule animation */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-white/5 overflow-hidden">
         <motion.div

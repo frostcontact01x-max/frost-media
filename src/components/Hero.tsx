@@ -64,7 +64,7 @@ export default function Hero({ onNavigate }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A] pt-36 pb-36 px-6"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-[#0A0A0A] pt-28 pb-16 md:py-36 px-6"
     >
       {/* Decorative full-page subtle ambient noise grain overlay */}
       <div
@@ -124,7 +124,7 @@ export default function Hero({ onNavigate }: HeroProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Core Brand Messaging */}
-          <div className="col-span-12 lg:col-span-7 text-left flex flex-col justify-center">
+          <div className="col-span-12 lg:col-span-7 text-left flex flex-col justify-center min-w-0 w-full">
             
             {/* Accent label with flat industrial styling (no blur, no border, no shadow) */}
             <motion.div
@@ -147,7 +147,7 @@ export default function Hero({ onNavigate }: HeroProps) {
             >
               <span className="block overflow-hidden relative">
                 <motion.span
-                  className="block text-[clamp(1.5rem,8vw,2.5rem)] sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5.5rem] tracking-tight font-black"
+                  className="block text-[clamp(1.25rem,8vw,2.5rem)] sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5.5rem] tracking-tight font-black"
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={clipTransition}
@@ -158,7 +158,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               </span>
               <span className="block overflow-hidden relative">
                 <motion.span
-                  className="block text-[clamp(1.5rem,8vw,2.5rem)] sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5.5rem] tracking-tight font-black italic text-transparent"
+                  className="block text-[clamp(1.25rem,8vw,2.5rem)] sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5.5rem] tracking-tight font-black italic text-transparent"
                   style={{ WebkitTextStroke: "2px #CC0000" }}
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
@@ -169,7 +169,7 @@ export default function Hero({ onNavigate }: HeroProps) {
               </span>
               <span className="block overflow-hidden relative">
                 <motion.span
-                  className="block text-[clamp(1.5rem,8vw,2.5rem)] sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5.5rem] tracking-tight font-black"
+                  className="block text-[clamp(1.25rem,8vw,2.5rem)] sm:text-6xl md:text-7xl lg:text-[4.5rem] xl:text-[5.5rem] tracking-tight font-black"
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ ...clipTransition, delay: 0.2 }}
@@ -195,9 +195,9 @@ export default function Hero({ onNavigate }: HeroProps) {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-              className="text-[1rem] text-slate-400 font-sans font-normal leading-relaxed max-w-2xl"
+              className="text-[1rem] text-slate-400 font-sans font-normal leading-relaxed max-w-2xl w-full block"
             >
-              Editing, thumbnails, content strategy, and distribution systems designed to help creators and businesses generate measurable growth from every piece of content.
+              Premium editing, thumbnails, and distribution <br />systems built for content growth.
             </motion.p>
 
             {/* Action buttons (Instant background color inversion to scarlet on hover) */}
