@@ -5,6 +5,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { Analytics } from "@vercel/analytics/react";
 import Logo from "./components/Logo";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
@@ -137,6 +138,9 @@ export default function App() {
 
       {/* Bottom framework footer */}
       <Footer onNavigate={handleNavigate} />
+
+      {/* Vercel Web Analytics */}
+      <Analytics />
     </div>
   );
 }
